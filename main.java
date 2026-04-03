@@ -86,5 +86,42 @@ class holder implements Serializable
     Singleroom luxury_singleerrom[]=new Singleroom[10]; //Luxury
     Singleroom deluxe_singleerrom[]=new Singleroom[20]; //Deluxe
 }
-
+class Hotel
+{
+    static holder hotel_ob=new holder();
+    static Scanner sc = new Scanner(System.in);
+    static void CustDetails(int i,int rn)
+    {
+        String name, contact, gender;
+        String name2 = null, contact2 = null; 
+        String gender2="";
+        System.out.print("\nEnter customer name: ");
+        name = sc.next();
+        System.out.print("Enter contact number: ");
+        contact=sc.next();
+        System.out.print("Enter gender: ");
+        gender = sc.next();
+        if(i<3)
+        {
+        System.out.print("Enter second customer name: ");
+        name2 = sc.next();
+        System.out.print("Enter contact number: ");
+        contact2=sc.next();
+        System.out.print("Enter gender: ");
+        gender2 = sc.next();
+        }      
+        
+          switch (i) {
+            case 1:hotel_ob.luxury_doublerrom[rn]=new Doubleroom(name,contact,gender,name2,contact2,gender2);
+                break;
+            case 2:hotel_ob.deluxe_doublerrom[rn]=new Doubleroom(name,contact,gender,name2,contact2,gender2);
+                break;
+            case 3:hotel_ob.luxury_singleerrom[rn]=new Singleroom(name,contact,gender);
+                break;
+            case 4:hotel_ob.deluxe_singleerrom[rn]=new Singleroom(name,contact,gender);
+                break;
+            default:System.out.println("Wrong option");
+                break;
+        }
+    }
     
